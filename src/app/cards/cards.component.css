@@ -1,8 +1,13 @@
 .cards-deck {
-    margin: 60px auto;
+    margin: 20px auto;
     display: inline-flex;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
+}
+
+button {
+    display: block;
+    position: absolute;
 }
 
 .cards {

@@ -1,12 +1,14 @@
 <section class="cards-deck">
     <div class="container-fluid row">
         <div class="col-md-auto cards" *ngFor="let card of cards">
-            <img src="{{card.imageUrl}}" alt="Card do pokemon">
+            <img src="{{card.imageUrl}}" alt="Card do pokemon" />
             <div class="card-body">
                 <h5 class="pokemon-name">Nome: {{card.name}}</h5>
                 <p class="id-pokemon">Id: {{card.id}}</p>
                 <p class="type">Tipo: {{card.types}}</p>
             </div>
+            <button (click)="getDetailsById(card.id)">Clique aqui</button>
         </div>
+
     </div>
 </section>

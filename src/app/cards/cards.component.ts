@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cards } from './interfaces/cards.model';
 import { CardsService } from './cards.service';
 
@@ -15,12 +16,17 @@ export class CardsComponent implements OnInit {
 
   constructor(
     private cardsService: CardsService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.cardsService.getCards().subscribe((response: any) => {
-      this.cards = response.cards.sort((a, b) => (a.name > b.name)? 1: -1)
+      this.cards = response.cards.sort((a, b) => (a.name > b.name) ? 1 : -1)
     });
+  }
+
+  getDetailsById(id: string) {
+    this.router.navigate(['details/', id]);
   }
 
 }

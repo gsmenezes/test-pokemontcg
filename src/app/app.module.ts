@@ -10,23 +10,31 @@ import { CardsComponent } from './cards/cards.component';
 import { SearchComponent } from './cards/search/search.component';
 import { CardsService } from './cards/cards.service';
 import { CardsModule } from './cards/cards.module';
-
+import { HttpService } from './cards/services/http.service';
+import { DataExchangeService } from "./cards/services/data-exchange.service";
+import { FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import { DetailsCardsComponent } from './cards/details-cards/details-cards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
-    SearchComponent
+    SearchComponent,
+    DetailsCardsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    CardsModule
+    CardsModule,
+    ReactiveFormsModule
   ],
   providers: [
-    CardsService
+    CardsService,
+    FormBuilder,
+    HttpService,
+    DataExchangeService
   ],
   bootstrap: [AppComponent]
 })

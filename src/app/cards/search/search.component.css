@@ -1,0 +1,52 @@
+.labels {
+    margin: 30px auto 20px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 25px;
+    max-width: 500px;
+    align-items: center;
+    justify-content: space-evenly;
+    display: inherit;
+    text-align: center;
+}
+
+.smile {
+    width: 50px;
+    height: 45px;
+}
+
+.search-pokemons {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    height: 50px;
+    padding-top: 10px;
+}
+
+input {
+    width: 500px;
+    height: 38px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2%;
+    font-size: 15px;
+}
+
+button {
+    width: 47px;
+    height: 42px;
+    background-color: #00d1b2;
+    border-color: transparent;
+    border-radius: 2%;
+}
+
+button:hover {
+    background-color: #088d79;
+    transition: background-color 400ms;
+}
+
+.icon-search {
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+}
