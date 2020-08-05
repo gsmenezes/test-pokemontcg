@@ -1,0 +1,79 @@
+.cards-deck {
+    margin: 60px auto;
+    display: inline-flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.cards {
+    display: inline-flex;
+    flex-direction: row;
+    width: 32%;
+    height: 3%;
+    margin: 0 0.5% 25px;
+    border: 0.5px solid #e4e3e3;
+    border-radius: 2%;
+}
+
+.cards:hover {
+    border: 1px solid #2A6CB4;
+    cursor: pointer;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Mukta', sans-serif;
+}
+
+.pokemon-name {
+    display: flex;
+    flex-direction: row;
+    padding: 25px 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
+.id-pokemon {
+    padding: 10px;
+    margin-top: 0;
+    font-size: 15px;
+    color: #333333;
+}
+
+.type {
+    padding: 10px;
+    margin-top: 0;
+    font-size: 15px;
+    color: #333333;
+}
+
+@media (max-width: 1092px) {
+    .cards-deck {
+        grid-template-columns: 1fr 1fr;
+    }
+    .cards {
+        width: 45%;
+        height: 2%;
+        margin: 0 2% 25px;
+    }
+    .pokemon-name {
+        padding: 25px 5px;
+    }
+}
+
+@media (max-width: 760px) {
+    .cards-deck {
+        grid-template-columns: 1fr;
+    }
+    .cards {
+        width: 95%;
+        height: 1%;
+        margin: 0 2% 25px;
+    }
+    .pokemon-name {
+        padding: 25px 5px;
+    }
+}

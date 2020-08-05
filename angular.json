@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "test-pokemontcg"
+    }
+  },
+  "defaultProject": "test-pokemontcg",
+  "cli": {
+    "analytics": false
+  }
 }
