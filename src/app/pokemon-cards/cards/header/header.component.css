@@ -1,0 +1,33 @@
+.navbar {
+    background-color: black;
+    display: block;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 22px;
+    padding: 0px 67px;
+    font-family: 'Mukta', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-collapse {
+    display: inline-flex;
+    padding: 10px 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Mukta', sans-serif;
+    padding: 10px;
+}
+
+@media (max-width: 640px) {
+    .nav-link {
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+}

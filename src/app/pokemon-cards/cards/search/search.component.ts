@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription, Observable, pipe } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { Cards } from '../interfaces/cards.model';
-import { CardsService } from '../cards.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { PokemonCardsService } from '../../pokemon-cards.services';
+
 
 @Component({
   selector: 'app-search',
@@ -30,8 +29,7 @@ export class SearchComponent implements OnInit {
   public unsubscribe: any;
 
   constructor(
-    private http: HttpClient,
-    private cardsService: CardsService,
+    private pokemonService: PokemonCardsService,
     private formBuilder: FormBuilder,
     private router: Router
   ) { }
@@ -49,7 +47,7 @@ export class SearchComponent implements OnInit {
     
     if (value && (value = value.trim()) !== '') {
      
-      this.results$ = this.cardsService.getCardsByName(value);
+      this.results$ = this.pokemonService.getCardsByName(value);
 
       this.router.navigate(['/cards?name=name']);
     }
@@ -62,7 +60,7 @@ export class SearchComponent implements OnInit {
 
     if (this.form.get('name').valid) {
       options = { queryParams: { name } };
-      this.cardsService.getCardsByName(name).subscribe((response: any) => {
+      this.pokemonService.getCardsByName(name).subscribe((response: any) => {
         this.cards = response.cards
         console.log(response.cards);
       });

@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { Cards } from './interfaces/cards.model';
-import { DetailsCards } from './interfaces/details-cards.model';
-import { ControlContainer } from '@angular/forms';
+import { Cards } from './cards/interfaces/cards.model';
+import { DetailsCards } from './cards/interfaces/details-cards.model';
 
 const URL = 'https://api.pokemontcg.io/v1/cards';
 
@@ -13,7 +12,7 @@ const URL = 'https://api.pokemontcg.io/v1/cards';
     providedIn: 'root'
 })
 
-export class CardsService {
+export class PokemonCardsService {
 
     constructor(
         private http: HttpClient) { }
@@ -30,4 +29,3 @@ export class CardsService {
         return this.http.get<DetailsCards>(URL + '/' + id);
     }
 }
-

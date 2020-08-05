@@ -2,9 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { CardsService } from "./cards.service";
-import { HttpService } from "./services/http.service";
-import { DataExchangeService } from "./services/data-exchange.service";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     declarations: [],
@@ -15,7 +13,7 @@ import { DataExchangeService } from "./services/data-exchange.service";
         ReactiveFormsModule,
     ],
     exports: [],
-    providers: [CardsService, HttpService, DataExchangeService],
+    providers: [],
 })
 
 export class CardsModule { }

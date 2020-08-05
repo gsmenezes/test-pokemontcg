@@ -6,21 +6,21 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CardsComponent } from './cards/cards.component';
-import { SearchComponent } from './cards/search/search.component';
-import { CardsService } from './cards/cards.service';
-import { CardsModule } from './cards/cards.module';
-import { HttpService } from './cards/services/http.service';
-import { DataExchangeService } from "./cards/services/data-exchange.service";
+import { CardsComponent } from './pokemon-cards/cards/cards.component';
+import { SearchComponent } from './pokemon-cards/cards/search/search.component';
+import { CardsModule } from './pokemon-cards/cards/cards.module';
 import { FormBuilder, ReactiveFormsModule} from '@angular/forms';
-import { DetailsCardsComponent } from './cards/details-cards/details-cards.component';
-
+import { DetailsCardsComponent } from '../app/pokemon-cards/cards/details-cards/details-cards.component';
+import { PokemonCardsComponent } from './pokemon-cards/pokemon-cards.component';
+import { PokemonCardsModule } from './pokemon-cards/pokemon-cards.module';
+import { PokemonCardsService } from './pokemon-cards/pokemon-cards.services';
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
     SearchComponent,
-    DetailsCardsComponent
+    DetailsCardsComponent,
+    PokemonCardsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,13 +28,11 @@ import { DetailsCardsComponent } from './cards/details-cards/details-cards.compo
     HttpClientModule,
     CommonModule,
     CardsModule,
+    PokemonCardsModule,
     ReactiveFormsModule
   ],
   providers: [
-    CardsService,
-    FormBuilder,
-    HttpService,
-    DataExchangeService
+   PokemonCardsService
   ],
   bootstrap: [AppComponent]
 })
