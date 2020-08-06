@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Cards } from '../interfaces/cards.model';
-import { FormControl } from '@angular/forms';
+import { PokemonCardsService } from '../../pokemon-cards.services';
 
 
 @Component({
@@ -15,29 +14,34 @@ import { FormControl } from '@angular/forms';
 export class SearchComponent implements OnInit {
 
   cardsByName: Cards[];
-  pokemonName = new FormControl('');
   message: string;
   pokemon: string;
+  formPokemon: FormGroup;
 
-  private subscriptions: Subscription[] = [];
+ @Output() pokemonEmmiter = new EventEmitter<Cards[]>();
 
   constructor(
-    private router: Router,
+    private fb: FormBuilder,
+    private pokemonService: PokemonCardsService,
   ) { }
 
 
   ngOnInit() {
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(s => s.unsubscribe());
+    this.initForm();
   }
 
   getName(): any {
-    this.pokemon = this.pokemonName.value;
-    if (this.pokemon) {
-      this.router.navigate(['/cards/name/', this.pokemon]);  
+    const name = this.formPokemon.get('name').value;
+    if (name && name.length > 0) {
+      this.pokemonService.getCardsByName(name).subscribe((response: any) => {
+        this.pokemonService.setPokemonSubject(response.cards);
+      });
     }
-    this.message = 'Ooooops.. digite o nome do Pokémon novamente!';
+  }
+
+  private initForm(): void {
+    this.formPokemon = this.fb.group({
+      name: [' ']
+    })
   }
 }

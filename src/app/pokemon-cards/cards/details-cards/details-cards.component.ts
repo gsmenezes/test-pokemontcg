@@ -19,17 +19,19 @@ export class DetailsCardsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
-    this.pokemonService.getDetailsById(this.getParamId()).subscribe((response: any) => {
-      this.details = response.card;     
-    });
+
+    this.showDetails();
 
   }
 
+  private showDetails() {
+    this.pokemonService.getDetailsById(this.getParamId()).subscribe((response: any) => {
+      this.details = response.card;
+    });
+  }
 
   private getParamId(): any {
     return String(this.router.snapshot.paramMap.get('id'));
-    
   }
 
 }

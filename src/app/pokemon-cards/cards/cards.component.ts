@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 
 import { Cards } from './interfaces/cards.model';
 import { PokemonCardsService } from '../pokemon-cards.services';
@@ -19,34 +19,27 @@ export class CardsComponent implements OnInit {
   constructor(
     private pokemonService: PokemonCardsService,
     private router: Router,
-    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
 
-    let pokemonName = this.route.snapshot.paramMap.get('name');
-    if (pokemonName === null) {
-      this.pokemonService.getCards().subscribe((response: any) => {
-        this.cards = response.cards.sort((a, b) => (a.name > b.name) ? 1 : -1)
-        console.log(this.cards);
-      });
-    } else {
-      this.pokemonService.getCardsByName(pokemonName).subscribe((response: any) => {
-        this.cards = response.cards
-        console.log(this.cards);
-      });
-    }
-  }
-
-  ngOnDestroy(){
-    this.onReload();
+    this.listCards();
+    this.listCardsByName();
   }
 
   getDetails(id: string) {
     this.router.navigate(['cards/', id]);
   }
 
-  onReload() {
-    console.log()
+  private listCards() {
+    this.pokemonService.getCards().subscribe((response: any) => {
+      this.cards = response.cards.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    });
+  }
+
+  private listCardsByName(): void {
+    this.pokemonService.getPokemonSubject().subscribe(response => {
+      this.cards = response;
+    });
   }
 }

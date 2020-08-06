@@ -5,7 +5,8 @@ export interface DetailsCards{
     evolvesFrom: string;
     hp: string;
     id: string;
-    imageUrlHiRes: ImageData;
+    imageUrl: string;
+    imageUrlHiRes: string;
     name: string;
     nationalPokedexNumber: number;
     number: string;
