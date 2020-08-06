@@ -1,1 +1,42 @@
-<p>details-cards works!</p>
+<section class="cards-details">
+    <div class="container-fluid row">
+        <div class="col-md-auto body">
+            <img src="{{details.imageUrlHiRes}}" alt="Card do pokemon" />
+            <div class="details">
+                <div class="title">
+                    <p class="pokemon-name"> {{details.name}} </p>
+                    <p class="pokemon-hp"> HP {{details.hp}} </p>
+                </div>
+                <hr>
+                <div class="descriptions">
+                    <p class="id-pokemon">Id: {{details.id}}</p>
+                    <p class="type">Tipo: {{details.types}}</p>
+                </div>
+                <div class="ability" *ngFor="let ability of details.ability">
+                    <p class="subtitle">Habilidades</p>
+                    <p class="descriptions">{{ability.name}}</p>
+                    <p class="descriptions">{{ability.text}}</p>
+                    <p class="descriptions">{{ability.type}}</p>
+
+                </div>
+                <div class="attacks" *ngFor="let attack of details.attacks">
+                    <p class="subtitle">Lista de Ataques</p>
+                    <p class="descriptions">{{attack.cost}}</p>
+                    <p class="descriptions">{{attack.name}} | {{attack.damage}}</p>
+                    <p class="descriptions">{{attack.text}}</p>
+                    <p class="descriptions">{{attack.convertedEnergyCost}}</p>
+                </div>
+                <div class="resistances" *ngFor="let resistance of details.resistances">
+                    <p class="subtitle">Resistências</p>
+                    <p class="descriptions">{{resistance.type}}</p>
+                    <p class="descriptions">{{resistance.value}}</p>
+                </div>
+                <div class="weakness" *ngFor="let weakness of details.weaknesses">
+                    <p class="subtitle">Fraquezas</p>
+                    <p class="descriptions">{{weakness.type}}</p>
+                    <p class="descriptions">{{weakness.value}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -22,7 +22,7 @@ export class PokemonCardsService {
     }
 
     getCardsByName(name: string): Observable<Cards> {
-        return this.http.get<Cards>(URL + '?name=' + name);
+        return this.http.get<Cards>(URL + '/?name=' + name);
     }
 
     getDetailsById(id: string): Observable<DetailsCards> {

@@ -1,0 +1,105 @@
+p {
+    margin: 0 !important;
+    font-family: 'Mukta', sans-serif;
+}
+
+.cards-details {
+    max-width: 1100px;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.body {
+    display: flex;
+}
+
+img {
+    width: 40%;
+    max-width: 440px;
+    height: auto;
+}
+
+.details {
+    margin: 10px 60px;
+}
+
+.title {
+    font-size: 35px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokemon-hp {
+    font-size: 20px;
+}
+
+.descriptions {
+    padding: 0px 5px 15px;
+    font-size: 15px;
+}
+
+.subtitle {
+    text-decoration: underline;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 0px 0px;
+}
+
+.ability {
+    padding: 0px 20px 15px;
+}
+
+.attacks {
+    padding: 0px 20px 15px;
+}
+
+.resistances {
+    padding: 0px 20px 15px;
+}
+
+.weakness {
+    padding: 0px 20px 15px;
+}
+
+@media (max-width: 760px) {
+    .cards-details {
+        width: 90%;
+    }
+    .body {
+        display: block;
+    }
+    img {
+        width: 100%;
+    }
+    .details {
+        margin: 5% 3%;
+    }
+    .title {
+        font-size: 20px;
+    }
+    .pokemon-hp {
+        font-size: 18px;
+    }
+    .descriptions {
+        font-size: 12px;
+    }
+    .subtitle {
+        text-decoration: underline;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 15px 0px 0px;
+    }
+    .ability {
+        padding: 0 1% 2%;
+    }
+    .attacks {
+        padding: 0 1% 2%;
+    }
+    .resistances {
+        padding: 0 1% 2%;
+    }
+    .weakness {
+        padding: 0 1% 2%;
+    }
+}

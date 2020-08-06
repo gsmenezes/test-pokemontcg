@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PokemonCardsService } from '../../pokemon-cards.services';
+import { DetailsCards } from '../interfaces/details-cards.model';
 
 @Component({
   selector: 'app-details-cards',
@@ -10,8 +11,7 @@ import { PokemonCardsService } from '../../pokemon-cards.services';
 })
 export class DetailsCardsComponent implements OnInit {
 
-  details;
-  isDetail = false;
+  details: DetailsCards;
 
   constructor(
     private router: ActivatedRoute,
@@ -19,21 +19,17 @@ export class DetailsCardsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getDetails();
+    
+    this.pokemonService.getDetailsById(this.getParamId()).subscribe((response: any) => {
+      this.details = response.card;     
+    });
+
   }
 
-  private getId(): any {
-    return String(this.router.snapshot.params['id']);
-  }
 
-  private getDetails(): any {
-    console.log('Get Details details-card component')
-    this.pokemonService.getDetailsById(this.getId())
-      .subscribe((response: any) => {
-        this.isDetail = true;
-        this.details = response.card;
-        console.log(this.details.name)
-      });
+  private getParamId(): any {
+    return String(this.router.snapshot.paramMap.get('id'));
+    
   }
 
 }

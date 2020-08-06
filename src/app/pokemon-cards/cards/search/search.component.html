@@ -1,12 +1,12 @@
 <div>
     <label for="search-pokemon"></label>
     <div class="labels">Pokémon TCG Developers - Teste <img class="smile" src="../../../assets/grin-beam-regular.svg" alt="">
-
         <div class="search-pokemons">
-            <input type="text" name="search" class="form-control" [formControl]="queryField" placeholder="Digite o nome...">
-            <button type="submit" (click)="onSearch()">
+            <input type="text" name="search" class="form-control" [formControl]="pokemonName" placeholder="Digite o nome...">
+            <button type="submit" (click)="getName()">
             <img class="icon-search" src="../../../assets/search-solid.svg" alt="">
         </button>
+            <!-- <div class="messageErr">{{message}}</div> -->
         </div>
     </div>
 </div>
